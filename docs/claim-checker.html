@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claim checker — Cristopher Guido</title>
+  <meta name="description" content="n8n claim checker: every headline number needs a verbatim source or the file is UNVERIFIED.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="wordmark" href="index.html">Cristopher Guido</a>
+      <nav class="nav" aria-label="Case studies">
+        <a href="speed-to-lead.html">Speed-to-lead</a>
+        <a href="image-pipeline.html">Image pipeline</a>
+        <a href="research-agents.html">Research agents</a>
+        <a href="claim-checker.html" aria-current="page">Claim checker</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+    <main>
+      <p class="kicker"><a href="index.html">Case studies</a></p>
+      <h1>Claim checker</h1>
+      <p class="lede">What I build for a client: a pass that treats every headline number as a claim.</p>
+
+      <h2>The job</h2>
+      <p>A draft — a brief, a memo, a slide outline — goes through a checker before anyone presents it. The workflow walks the text, pulls each headline number, and asks one question: where is the sentence this came from?</p>
+
+      <h2>Verbatim or UNVERIFIED</h2>
+      <p>Each number needs a verbatim source sentence. Paraphrase is not enough. “About four” does not cover “4.3.” If the source is missing, the file is marked <code>UNVERIFIED</code>. The run does not round a 3.1 into a 4 to match the deck.</p>
+
+      <h2>What I do not do</h2>
+      <p>I do not let the model “approximately confirm” a figure. I do not score confidence. A number is sourced or it is not. The client can ship the file or they can fix the claim. Those are the two exits.</p>
+
+      <h2>What the client sees</h2>
+      <p>A marked draft: each headline number paired with a quoted sentence, or a red <code>UNVERIFIED</code> on the file. No quiet pass.</p>
+    </main>
+    <footer class="site-footer">
+      <p>Clean-room site. No client files, workflow JSON, or keys.</p>
+      <p><a href="index.html">All case studies</a></p>
+    </footer>
+  </div>
+</body>
+</html>
