@@ -2,18 +2,18 @@
 const MAILTO = "";
 
 const SCENES = {
-  write: {
+  ran: {
     steps: [
-      { node: "trigger", log: "trigger · brief in" },
-      { node: "decide", log: "decide · source holds" },
-      { node: "out", log: "write · file out", fields: { out: "Write" }, cls: "ok" },
+      { node: "in", log: "The job came in." },
+      { node: "path", log: "The path ran." },
+      { node: "out", log: "It finished.", fields: { out: "Done" }, cls: "ok" },
     ],
   },
-  stop: {
+  stopped: {
     steps: [
-      { node: "trigger", log: "trigger · brief in" },
-      { node: "decide", log: "decide · source missing", stop: true },
-      { node: "out", log: "stop · no write", fields: { out: "Stop" }, cls: "halt" },
+      { node: "in", log: "The job came in." },
+      { node: "path", log: "It could not finish.", stop: true },
+      { node: "out", log: "It stopped and said so.", fields: { out: "Stopped" }, cls: "halt" },
     ],
   },
 };
@@ -53,7 +53,7 @@ function resetBoard() {
     if (el) el.textContent = "—";
   });
   if (logEl) logEl.replaceChildren();
-  if (nodes[0]) moveToken("trigger");
+  if (nodes[0]) moveToken("in");
 }
 
 function applyFields(next) {
@@ -132,5 +132,5 @@ if (MAILTO) {
 }
 
 if (token && logEl && tabs.length) {
-  play("write");
+  play("ran");
 }
