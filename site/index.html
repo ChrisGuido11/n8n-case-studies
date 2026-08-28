@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your team is still doing the work the software was supposed to do — Cristopher Guido</title>
-  <meta name="description" content="A lead comes in. Someone copies it. Someone forgets. I build the path so it runs without a person in the middle.">
+  <title>The same job still needs a person in the middle — Cristopher Guido</title>
+  <meta name="description" content="The same job comes back. Someone still has to move it, rebuild it, or remember it. I build the path so it runs without a person in the middle.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,700;1,9..144,560&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -24,28 +24,28 @@
 
   <main id="top">
     <section class="hero" id="problem">
-      <h1>Your team is still doing the work the software was supposed to do.</h1>
-      <p class="subhead">I build automations so that path runs without a person in the middle.</p>
-      <p>A lead comes in. Someone copies it. Someone forgets the follow-up. Monday’s report is a spreadsheet you rebuild by hand.</p>
+      <h1>The same job still needs a person in the middle.</h1>
+      <p class="subhead">I build automations for the work you already repeat — not one kind of job.</p>
+      <p>The same job comes back every day or every week. Someone still has to move it, rebuild it, or remember it. The tools are there. The person is still in the middle.</p>
       <p class="hero-cta">
         <a class="cta" href="#book">Book my 20-minute walk</a>
       </p>
     </section>
 
     <section class="block" id="agitate">
-      <h2>Then it sits. Then a customer asks.</h2>
-      <p>That person gets sick. A form changes. A week of leads sits in an inbox. You find out when a customer asks why nobody called.</p>
-      <p>The automation you already bought is quiet when it breaks. Nobody sees it fail. They see an empty week, and then they see you.</p>
+      <h2>Then the job sits. You find out late.</h2>
+      <p>That person is out. A step changes. The job sits. You find out late.</p>
+      <p>The automation you already bought does not speak up when it dies.</p>
       <p class="cta-row"><a class="cta" href="#book">Book my 20-minute walk</a></p>
     </section>
 
     <section class="block" id="solve">
       <h2>I build the path once.</h2>
-      <p>New lead in. The right person gets it. The follow-up goes out. You can see that it ran. If it cannot, it stops and tells you.</p>
-      <p>You keep your tools. I do not sell you a new pile of apps. I build that path in n8n.</p>
+      <p>For the job you actually repeat. It runs without a person in the middle. If it cannot, it stops and says so.</p>
+      <p>You keep your tools. I do not sell a new pile of apps. I build that path in n8n.</p>
 
       <div class="stage-block">
-        <p class="stage-lead">Lead in. Right person. Done — or it stops and says so.</p>
+        <p class="stage-lead">Work in. The path runs. Done — or it stopped and said so.</p>
         <div class="stage">
           <div class="paths" role="tablist" aria-label="What the path does">
             <button type="button" role="tab" aria-selected="true" aria-controls="console" data-scene="ran">It ran</button>
@@ -53,10 +53,10 @@
           </div>
           <div class="console" id="console" role="tabpanel" aria-live="polite">
             <div class="rail" aria-hidden="true">
-              <div class="token" id="token">Lead</div>
+              <div class="token" id="token">Work</div>
               <ol class="nodes">
-                <li class="node" data-node="lead"><span class="node-label">Lead in</span></li>
-                <li class="node" data-node="person"><span class="node-label">Right person</span></li>
+                <li class="node" data-node="in"><span class="node-label">Work in</span></li>
+                <li class="node" data-node="path"><span class="node-label">Path runs</span></li>
                 <li class="node" data-node="out"><span class="node-label">Done</span><span class="node-value" data-field="out">—</span></li>
               </ol>
             </div>
@@ -75,11 +75,11 @@
       <h2>Questions</h2>
       <details>
         <summary>What is the twenty minutes?</summary>
-        <p>You tell me the path that still needs a person. I tell you if I can take that person out. If yes, we talk about building it. Nothing is booked until I write back.</p>
+        <p>You name the job you already repeat. I tell you if I can take the person out of the middle. If yes, we talk about building it. Nothing is booked until I write back.</p>
       </details>
       <details>
         <summary>Do I have to buy new software?</summary>
-        <p>No. You keep what you already use. I connect the path. I do not replace your stack with a new pile of apps.</p>
+        <p>No. You keep what you already use. I do not replace it with a new pile of apps.</p>
       </details>
       <details>
         <summary>Will you email me a file dump?</summary>
@@ -87,13 +87,13 @@
       </details>
       <details>
         <summary>Who pays for the accounts?</summary>
-        <p>You do. Your email, your phone, your software. I do not resell them.</p>
+        <p>You do. Your software, your accounts. I do not resell them.</p>
       </details>
     </section>
 
     <section class="block book" id="book">
       <h2>Book my 20-minute walk</h2>
-      <p>Tell me where to reply. Tell me the path that still needs a person. No bot.</p>
+      <p>Tell me where to reply. Tell me the job you already repeat. No bot.</p>
 
       <form class="walk-form" name="walk" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="walk">
@@ -109,7 +109,7 @@
           <input id="email" name="email" type="email" required autocomplete="email">
         </p>
         <p>
-          <label for="note">What path still needs a person? <span class="opt">(optional)</span></label>
+          <label for="note">What job do you still repeat? <span class="opt">(optional)</span></label>
           <textarea id="note" name="note" rows="3"></textarea>
         </p>
         <p>
@@ -120,7 +120,7 @@
   </main>
 
   <footer class="foot">
-    <p>Cristopher Guido. Automations so your team is not stuck in the middle.</p>
+    <p>Cristopher Guido. Automations so a person is not stuck in the middle.</p>
     <p><a href="https://github.com/ChrisGuido11/n8n-case-studies">Source</a></p>
   </footer>
 

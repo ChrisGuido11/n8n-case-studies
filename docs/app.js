@@ -4,15 +4,15 @@ const MAILTO = "";
 const SCENES = {
   ran: {
     steps: [
-      { node: "lead", log: "A lead came in." },
-      { node: "person", log: "The right person got it." },
-      { node: "out", log: "The follow-up went out.", fields: { out: "Done" }, cls: "ok" },
+      { node: "in", log: "The job came in." },
+      { node: "path", log: "The path ran." },
+      { node: "out", log: "It finished.", fields: { out: "Done" }, cls: "ok" },
     ],
   },
   stopped: {
     steps: [
-      { node: "lead", log: "A lead came in." },
-      { node: "person", log: "It could not finish.", stop: true },
+      { node: "in", log: "The job came in." },
+      { node: "path", log: "It could not finish.", stop: true },
       { node: "out", log: "It stopped and said so.", fields: { out: "Stopped" }, cls: "halt" },
     ],
   },
@@ -53,7 +53,7 @@ function resetBoard() {
     if (el) el.textContent = "—";
   });
   if (logEl) logEl.replaceChildren();
-  if (nodes[0]) moveToken("lead");
+  if (nodes[0]) moveToken("in");
 }
 
 function applyFields(next) {
