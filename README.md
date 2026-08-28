@@ -1,6 +1,6 @@
 # Clean-room n8n agents
 
-B2B landing page for Cristopher Guido. One offer: a 20-minute walk of a real demo, then a scoped build.
+B2B landing page for Cristopher Guido. Home sells the 20-minute walk. `work.html` is the story index.
 
 `site/` is the source. Netlify publishes it. `docs/` is a copy so GitHub Pages can still deploy from `/docs`.
 

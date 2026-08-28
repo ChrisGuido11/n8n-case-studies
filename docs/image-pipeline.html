@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The model ID was still on the list — Cristopher Guido</title>
+  <meta name="description" content="A 404 that looked like a bad credential, a negative prompt that no-op’d, and why I never type Bearer into a header.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,700;1,9..144,560&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="index.html#book">Skip to book the walk</a>
+  <header class="mast">
+    <a class="name" href="index.html">Cristopher Guido</a>
+    <nav class="nav" aria-label="Site">
+      <a href="work.html">Work</a>
+      <a class="cta cta-nav" href="index.html#book">Book my 20-minute walk</a>
+    </nav>
+  </header>
+
+  <main class="story-page">
+    <p class="kicker"><a href="work.html">Work</a></p>
+    <h1>The model ID was still on the list.</h1>
+
+    <p>A client needed a moodboard from a written brief. Not a chatbot that tries its best. A batch of images that match what they asked for, including what they forbade.</p>
+
+    <p>The node went red. Red looks like a bad credential. The instinct is to open the header field and type <code>Bearer</code> again. I never type <code>Bearer</code> into a header. The HTTP node already adds it. A double prefix fails quiet, and you spend the afternoon chasing the wrong ghost.</p>
+
+    <p>The run was not a credential problem. The run was a 404. The model ID was still listed. The model was gone. A pipeline that “just retries” will pick a neighbor model and ship a board that looks close. Close is a defect when the brief named a look.</p>
+
+    <p>A later attempt came back looking finished. The negative prompt had done nothing. Some image APIs ignore it and still return 200. A no-op negative is not a style choice. It is an unconstrained board with a pretty face.</p>
+
+    <p>I build the pipeline so a missing model stops the run, a no-op negative gets marked unconstrained, and auth stays out of the header field. The client gets a board that matches the brief, or a failure with a name. Not a pretty wrong board.</p>
+
+    <p class="cta-row">
+      <a class="cta" href="index.html#book">Book my 20-minute walk</a>
+    </p>
+    <p class="bridge"><a href="work.html">More doors that refused</a></p>
+  </main>
+
+  <footer class="foot">
+    <p>Cristopher Guido. Clean-room n8n agent builds. No client files. No workflow export.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

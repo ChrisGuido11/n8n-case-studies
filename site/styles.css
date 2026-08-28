@@ -91,7 +91,10 @@ a:hover {
 
 .nav {
   display: flex;
-  gap: 1.1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem 1rem;
   font-size: 0.95rem;
 }
 
@@ -100,8 +103,14 @@ a:hover {
   text-decoration: none;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a[aria-current="page"] {
   text-decoration: underline;
+}
+
+.cta-nav {
+  padding: 0.42rem 0.7rem;
+  font-size: 0.88rem;
 }
 
 .hero,
@@ -188,7 +197,9 @@ button.cta {
 
 .stage-lead code,
 .block code,
-.faq code {
+.faq code,
+.story-page code,
+.work-page code {
   font-family: var(--mono);
   font-size: 0.86em;
   padding: 0.05em 0.28em;
@@ -403,6 +414,61 @@ button.cta {
   margin: 1.15rem 0 0;
 }
 
+.bridge {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
+.story-page,
+.work-page {
+  width: min(40rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.25rem 0 3rem;
+}
+
+.story-page h1,
+.work-page h1 {
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  line-height: 1.05;
+}
+
+.story-page p,
+.work-page > p {
+  margin: 0 0 0.95rem;
+}
+
+.story-open {
+  margin: 0;
+  padding: 1.6rem 0 0.4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.story-open h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 3.4vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.story-open h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.story-open h2 a:hover {
+  color: var(--cta);
+  text-decoration: underline;
+}
+
+.work-page > .kicker {
+  margin-top: 0.4rem;
+}
+
 .faq details {
   border-top: 1px solid var(--rule);
 }
@@ -531,6 +597,11 @@ button.cta {
 
   .cta {
     padding: 0.75rem 1rem;
+  }
+
+  .cta-nav {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
   }
 }
 
