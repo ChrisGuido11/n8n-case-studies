@@ -1,0 +1,10 @@
+node_modules/
+mobile-screenshots/
+mobile-final-screenshots/
+package.json
+package-lock.json
+analyze-mobile.sh
+final-mobile-check.js
+recheck-mobile.js
+test-mobile.js
+test-mobile-visual.js
