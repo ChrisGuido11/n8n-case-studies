@@ -151,7 +151,7 @@ function play(sceneId) {
       }
       applyFields(step.fields);
       addLog(step.log, step.cls);
-    }, 280 + i * 420);
+    }, 80 + i * 380);
   });
 }
 
