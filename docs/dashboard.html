@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ops dashboard — Cristopher Guido</title>
+  <meta name="description" content="n8n ops dashboards with honest empty panels instead of a fake 4.3.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="wordmark" href="index.html">Cristopher Guido</a>
+      <nav class="nav" aria-label="Case studies">
+        <a href="speed-to-lead.html">Speed-to-lead</a>
+        <a href="image-pipeline.html">Image pipeline</a>
+        <a href="research-agents.html">Research agents</a>
+        <a href="claim-checker.html">Claim checker</a>
+        <a href="dashboard.html" aria-current="page">Dashboard</a>
+      </nav>
+    </header>
+    <main>
+      <p class="kicker"><a href="index.html">Case studies</a></p>
+      <h1>Ops dashboard</h1>
+      <p class="lede">What I build for a client: a board on top of n8n runs that stays empty when the week is empty.</p>
+
+      <h2>The job</h2>
+      <p>Operators need to see what actually ran: leads that booked, research that finished, claims that failed the check. The dashboard reads those runs. It does not decorate them.</p>
+
+      <h2>Honest empty</h2>
+      <p>If the week has no closed deals, the panel is empty. A fake 4.3 looks finished and is a lie. I would rather ship a blank tile with the label “no rows this period” than a number that makes the room relax.</p>
+
+      <h2>What I do not do</h2>
+      <p>I do not seed sample metrics. I do not average a missing score into a default. I do not show last month’s figure in this month’s tile. Empty is a state, not a gap to fill.</p>
+
+      <h2>What the client sees</h2>
+      <p>Tiles that match the ledger. When there is nothing to show, they see nothing — and they know that is the truth.</p>
+    </main>
+    <footer class="site-footer">
+      <p>Clean-room site. No client files, workflow JSON, or keys.</p>
+      <p><a href="index.html">All case studies</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Life insurance speed-to-lead — Cristopher Guido</title>
+  <meta name="description" content="Phase 1 n8n demo: four doors from a form. Stub list. No live texts.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="wordmark" href="index.html">Cristopher Guido</a>
+      <nav class="nav" aria-label="Case studies">
+        <a href="speed-to-lead.html" aria-current="page">Speed-to-lead</a>
+        <a href="image-pipeline.html">Image pipeline</a>
+        <a href="research-agents.html">Research agents</a>
+        <a href="claim-checker.html">Claim checker</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+    <main>
+      <p class="kicker"><a href="index.html">Case studies</a></p>
+      <span class="badge">Phase 1 demo — ran in n8n</span>
+      <h1>Life insurance speed-to-lead</h1>
+      <p class="lede">A lead hits a form. The workflow picks a door. It does not invent a yes.</p>
+
+      <h2>What I already ran</h2>
+      <p>This is a phase 1 demo I ran in n8n against a stub list. It is not a live agency install. Nothing on this page is a production text or a real appointment.</p>
+
+      <h2>Front door</h2>
+      <p>A form posts to a webhook. That is the only entry. The live finish — not this demo — writes the contact into their CRM (GoHighLevel) and sends texts that include STOP. The demo stops at the stub list so nobody gets a message.</p>
+
+      <h2>Four doors</h2>
+      <ul class="doors">
+        <li class="door">
+          <h3>NC — book</h3>
+          <p>Qualifying North Carolina lead. Three texts are logged and a fake appointment is written. Status stays <code>logged_not_sent</code>. Nothing leaves the stub list.</p>
+        </li>
+        <li class="door">
+          <h3>SC — nurture</h3>
+          <p>Keep-warm only. No booking path. The lead stays in nurture.</p>
+        </li>
+        <li class="door">
+          <h3>TX — reject</h3>
+          <p>No text. The door closes.</p>
+        </li>
+        <li class="door">
+          <h3>NC — handoff</h3>
+          <p>The reply is unusable. The workflow does not guess yes. It hands off.</p>
+        </li>
+      </ul>
+
+      <h2>Demo vs live</h2>
+      <p>Demo: stub list, logged texts, fake appointment, <code>logged_not_sent</code>.</p>
+      <p>Live finish (not this site): their CRM and real texts with STOP.</p>
+      <p class="note">I do not publish the workflow JSON. If you want the path, ask. I will walk the doors, not send an export.</p>
+    </main>
+    <footer class="site-footer">
+      <p>Clean-room site. No client files, workflow JSON, or keys.</p>
+      <p><a href="index.html">All case studies</a></p>
+    </footer>
+  </div>
+</body>
+</html>
