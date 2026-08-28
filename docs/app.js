@@ -2,52 +2,18 @@
 const MAILTO = "";
 
 const SCENES = {
-  "nc-book": {
-    end: { state: "NC", q: "Clear / clear", door: "Book" },
+  write: {
     steps: [
-      { node: "form", log: "form · webhook in" },
-      { node: "state", log: "gate · NC — open", fields: { state: "NC" } },
-      { node: "q", log: "q1 · clear" },
-      { node: "q", log: "q2 · clear", fields: { q: "Clear / clear" } },
-      { node: "door", log: "door · book", fields: { door: "Book" }, cls: "ok" },
-      { log: "text · 1 of 3 · logged_not_sent", cls: "ok" },
-      { log: "text · 2 of 3 · logged_not_sent", cls: "ok" },
-      { log: "text · 3 of 3 · logged_not_sent", cls: "ok" },
-      { log: "appt · stub · not on a live calendar" },
+      { node: "trigger", log: "trigger · brief in" },
+      { node: "decide", log: "decide · source holds" },
+      { node: "out", log: "write · file out", fields: { out: "Write" }, cls: "ok" },
     ],
   },
-  "sc-nurture": {
-    end: { state: "SC", q: "—", door: "Nurture" },
+  stop: {
     steps: [
-      { node: "form", log: "form · webhook in" },
-      { node: "state", log: "gate · SC — open", fields: { state: "SC" } },
-      { node: "door", log: "door · nurture", fields: { q: "Skipped", door: "Nurture" }, cls: "ok" },
-      { log: "path · keep-warm only" },
-      { log: "book · no" },
-      { log: "text · none" },
-    ],
-  },
-  "tx-reject": {
-    end: { state: "TX", q: "—", door: "Reject" },
-    stopAt: "state",
-    steps: [
-      { node: "form", log: "form · webhook in" },
-      { node: "state", log: "gate · TX — closed", fields: { state: "TX" }, stop: true },
-      { log: "door · reject", fields: { door: "Reject" }, cls: "halt" },
-      { log: "stop · hard", cls: "halt" },
-      { log: "text · none" },
-    ],
-  },
-  "nc-handoff": {
-    end: { state: "NC", q: "Clear / unusable", door: "Handoff" },
-    steps: [
-      { node: "form", log: "form · webhook in" },
-      { node: "state", log: "gate · NC — open", fields: { state: "NC" } },
-      { node: "q", log: "q1 · clear" },
-      { node: "q", log: "q2 · unusable", fields: { q: "Clear / unusable" } },
-      { node: "door", log: "door · handoff", fields: { door: "Handoff" }, cls: "ok" },
-      { log: "guess · no" },
-      { log: "text · none" },
+      { node: "trigger", log: "trigger · brief in" },
+      { node: "decide", log: "decide · source missing", stop: true },
+      { node: "out", log: "stop · no write", fields: { out: "Stop" }, cls: "halt" },
     ],
   },
 };
@@ -56,11 +22,9 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const token = document.getElementById("token");
 const logEl = document.getElementById("log");
 const nodes = [...document.querySelectorAll(".node")];
-const tabs = [...document.querySelectorAll(".doors [data-scene]")];
+const tabs = [...document.querySelectorAll(".paths [data-scene]")];
 const fields = {
-  state: document.querySelector('[data-field="state"]'),
-  q: document.querySelector('[data-field="q"]'),
-  door: document.querySelector('[data-field="door"]'),
+  out: document.querySelector('[data-field="out"]'),
 };
 
 let playId = 0;
@@ -79,13 +43,8 @@ function later(fn, ms) {
 function moveToken(nodeName) {
   const node = nodes.find((n) => n.dataset.node === nodeName);
   if (!node || !token) return;
-  const rail = node.parentElement;
   const mid = node.offsetLeft + node.offsetWidth / 2;
   token.style.left = `${mid}px`;
-  if (rail) {
-    /* keep token from clipping on the first node */
-    void rail.offsetWidth;
-  }
 }
 
 function resetBoard() {
@@ -93,8 +52,8 @@ function resetBoard() {
   Object.values(fields).forEach((el) => {
     if (el) el.textContent = "—";
   });
-  logEl.replaceChildren();
-  if (nodes[0]) moveToken("form");
+  if (logEl) logEl.replaceChildren();
+  if (nodes[0]) moveToken("trigger");
 }
 
 function applyFields(next) {
@@ -105,6 +64,7 @@ function applyFields(next) {
 }
 
 function addLog(text, cls) {
+  if (!logEl) return;
   const li = document.createElement("li");
   li.textContent = text;
   if (cls) li.className = cls;
@@ -121,11 +81,11 @@ function play(sceneId) {
   const ticket = ++playId;
   clearTimers();
   resetBoard();
-  document.querySelector(".stage").dataset.scene = sceneId;
+  const stage = document.querySelector(".stage");
+  if (stage) stage.dataset.scene = sceneId;
 
   tabs.forEach((tab) => {
-    const on = tab.dataset.scene === sceneId;
-    tab.setAttribute("aria-selected", on ? "true" : "false");
+    tab.setAttribute("aria-selected", tab.dataset.scene === sceneId ? "true" : "false");
   });
 
   if (reduceMotion) {
@@ -151,7 +111,7 @@ function play(sceneId) {
       }
       applyFields(step.fields);
       addLog(step.log, step.cls);
-    }, 80 + i * 380);
+    }, 80 + i * 420);
   });
 }
 
@@ -172,5 +132,5 @@ if (MAILTO) {
 }
 
 if (token && logEl && tabs.length) {
-  play("nc-book");
+  play("write");
 }

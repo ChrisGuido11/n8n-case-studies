@@ -129,6 +129,7 @@ a:hover {
 .hero h1,
 .hero .subhead,
 .hero .kicker,
+.hero .agitate,
 .hero-cta,
 .stage-lead {
   width: min(40rem, 100%);
@@ -160,8 +161,14 @@ h1 {
   line-height: 1.35;
 }
 
+.agitate {
+  margin: -0.35rem 0 1.1rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 .hero-cta {
-  margin: 0 0 2rem;
+  margin: 0 0 1.6rem;
 }
 
 .cta {
@@ -211,49 +218,25 @@ button.cta {
   gap: 0.75rem;
 }
 
-.doors {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.paths {
+  display: flex;
   gap: 0.5rem;
 }
 
-.doors button {
-  display: grid;
-  gap: 0.1rem;
-  padding: 0.7rem 0.75rem;
-  text-align: left;
+.paths button {
+  padding: 0.45rem 0.85rem;
   color: var(--ink);
   background: transparent;
   border: 1px solid var(--ink);
-  font: inherit;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.doors button[aria-selected="true"] {
+.paths button[aria-selected="true"] {
   background: var(--ink);
   color: var(--paper);
-}
-
-.door-code {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-}
-
-.door-name {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.door-hint {
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-.doors button[aria-selected="true"] .door-hint {
-  color: #cfc6b4;
 }
 
 .console {
@@ -288,7 +271,7 @@ button.cta {
 
 .nodes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.4rem;
   margin: 0;
   padding: 0;
@@ -369,7 +352,7 @@ button.cta {
   font-size: 0.78rem;
   line-height: 1.55;
   color: var(--stage-dim);
-  min-height: 8.5rem;
+  min-height: 4.5rem;
 }
 
 .log li {
@@ -541,10 +524,6 @@ button.cta {
 }
 
 @media (min-width: 720px) {
-  .doors {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .console {
     grid-template-columns: 1.15fr 0.85fr;
     align-items: start;
@@ -577,10 +556,6 @@ button.cta {
 
   .hero-cta {
     margin-bottom: 1.15rem;
-  }
-
-  .door-hint {
-    display: none;
   }
 
   .nodes {

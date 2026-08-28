@@ -1,6 +1,6 @@
 # Clean-room n8n agents
 
-B2B landing page for Cristopher Guido. Home sells the 20-minute walk. `work.html` is the story index.
+B2B landing page for Cristopher Guido. Home sells a custom n8n build. `work.html` is five home-retail stories. No insurance demo on home.
 
 `site/` is the source. Netlify publishes it. `docs/` is a copy so GitHub Pages can still deploy from `/docs`.
 
