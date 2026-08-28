@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The model invented seven links — Cristopher Guido</title>
+  <meta name="description" content="A missing equals sign sent a literal template. The model invented seven links. Count in, count out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,700;1,9..144,560&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="index.html#book">Skip to book the walk</a>
+  <header class="mast">
+    <a class="name" href="index.html">Cristopher Guido</a>
+    <nav class="nav" aria-label="Site">
+      <a href="work.html">Work</a>
+      <a class="cta cta-nav" href="index.html#book">Book my 20-minute walk</a>
+    </nav>
+  </header>
+
+  <main class="story-page">
+    <p class="kicker"><a href="work.html">Work</a></p>
+    <h1>The model invented seven links.</h1>
+
+    <p>A research pass is supposed to be boring. A list of sources goes in. Notes come out. Every citation is a URL someone actually opened.</p>
+
+    <p>Someone left off the <code>=</code>. In n8n, <code>={{ $json.url }}</code> is an expression. Without the equals, the node does not resolve anything. It sends the literal characters <code>{{ $json.url }}</code>. The model received a template string and tried to be helpful.</p>
+
+    <p>Helpful was seven links that were never on the list. They looked like citations. They would have survived a skim. They would not have survived a click.</p>
+
+    <p>That is not a creative model. That is a wiring defect wearing a bibliography.</p>
+
+    <p>I count in and I count out. If a URL was not fetched, it does not appear. If the node sent a literal template, the run stops. The client gets a ledger — kept, dropped with a reason, failed — and notes written only from what came back. Invented citations do not ship.</p>
+
+    <p class="cta-row">
+      <a class="cta" href="index.html#book">Book my 20-minute walk</a>
+    </p>
+    <p class="bridge"><a href="work.html">More doors that refused</a></p>
+  </main>
+
+  <footer class="foot">
+    <p>Cristopher Guido. Clean-room n8n agent builds. No client files. No workflow export.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

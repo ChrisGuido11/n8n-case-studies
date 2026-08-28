@@ -171,4 +171,6 @@ if (MAILTO) {
   });
 }
 
-play("nc-book");
+if (token && logEl && tabs.length) {
+  play("nc-book");
+}
