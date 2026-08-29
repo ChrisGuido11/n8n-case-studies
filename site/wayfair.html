@@ -156,23 +156,39 @@
 
     <section class="project" id="content">
       <h2>Content / marketing</h2>
-      <p>The moodboard, the trends, and the competitor read go in. A marketer gets a brief they can use.</p>
+      <p>A brief is uploaded. The path extracts the files, writes in the client’s voice, verifies every claim, and builds HTML. No unsourced percent.</p>
       <div class="stage-block">
         <div class="stage">
           <div class="paths">
             <button type="button" class="run-btn" aria-controls="console-content">Watch it run</button>
           </div>
-          <div class="console" id="console-content" aria-live="polite">
+          <div class="console console--scroll" id="console-content" aria-live="polite">
             <div class="rail">
               <div class="token">Run</div>
-              <div class="wire" aria-hidden="true">
-                <div class="track"><div class="track-fill"></div></div>
-                <ol class="nodes">
-                  <li class="node" data-node="in"><span class="node-label">Those three reports in</span></li>
-                  <li class="node" data-node="run"><span class="node-label">Write the brief</span></li>
-                  <li class="node" data-node="out"><span class="node-label">Marketer can use it</span></li>
+              <div class="wire">
+                <div class="track" aria-hidden="true"><div class="track-fill"></div></div>
+                <ol class="nodes nodes--five">
+                  <li class="node" data-say="A brief is uploaded, or a demo brief is used.">
+                    <span class="node-label">Upload / demo brief</span>
+                  </li>
+                  <li class="node" data-say="The files are extracted.">
+                    <span class="node-label">Extract the files</span>
+                  </li>
+                  <li class="node" data-say="The content is written in the client’s voice.">
+                    <span class="node-label">AI writes the content</span>
+                  </li>
+                  <li class="node" data-say="Claims are verified. No unsourced percent.">
+                    <span class="node-label">Verify claims</span>
+                  </li>
+                  <li class="node" data-say="The HTML is built and ready to download.">
+                    <span class="node-label">Build HTML</span>
+                  </li>
                 </ol>
               </div>
+            </div>
+            <div class="run">
+              <p class="log-kicker">Run</p>
+              <ol class="log"></ol>
             </div>
           </div>
         </div>
@@ -181,23 +197,39 @@
 
     <section class="project" id="dashboard">
       <h2>Dashboard</h2>
-      <p>The week goes in. A manager opens tiles they can act on. An empty week stays empty. No invented score.</p>
+      <p>A manager drops the trend report and the competitor report. The path builds tiles they can act on. An empty week stays empty. No invented score.</p>
       <div class="stage-block">
         <div class="stage">
           <div class="paths">
             <button type="button" class="run-btn" aria-controls="console-dashboard">Watch it run</button>
           </div>
-          <div class="console" id="console-dashboard" aria-live="polite">
+          <div class="console console--scroll" id="console-dashboard" aria-live="polite">
             <div class="rail">
               <div class="token">Run</div>
-              <div class="wire" aria-hidden="true">
-                <div class="track"><div class="track-fill"></div></div>
-                <ol class="nodes">
-                  <li class="node" data-node="in"><span class="node-label">Week of work in</span></li>
-                  <li class="node" data-node="run"><span class="node-label">Build the tiles</span></li>
-                  <li class="node" data-node="out"><span class="node-label">Manager can act</span></li>
+              <div class="wire">
+                <div class="track" aria-hidden="true"><div class="track-fill"></div></div>
+                <ol class="nodes nodes--five">
+                  <li class="node" data-say="The manager uploads the trend report and the competitor report.">
+                    <span class="node-label">Two reports in</span>
+                  </li>
+                  <li class="node" data-say="The dashboard template is fetched.">
+                    <span class="node-label">Fetch the template</span>
+                  </li>
+                  <li class="node" data-say="Both reports are parsed. Same category, or the run errors.">
+                    <span class="node-label">Parse both reports</span>
+                  </li>
+                  <li class="node" data-say="The tiles are built. An empty week stays empty. No invented score.">
+                    <span class="node-label">Build the tiles</span>
+                  </li>
+                  <li class="node" data-say="The dashboard is ready to download. Every figure keeps its source.">
+                    <span class="node-label">Download</span>
+                  </li>
                 </ol>
               </div>
+            </div>
+            <div class="run">
+              <p class="log-kicker">Run</p>
+              <ol class="log"></ol>
             </div>
           </div>
         </div>
