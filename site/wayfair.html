@@ -27,23 +27,42 @@
 
     <section class="project" id="moodboard">
       <h2>Moodboard</h2>
-      <p>A style line goes in. A dressed room comes back — furniture on the floor.</p>
+      <p>A style idea arrives in chat. The path writes one image prompt, cleans it, generates the board, and names the file.</p>
       <div class="stage-block">
         <div class="stage">
           <div class="paths">
             <button type="button" class="run-btn" aria-controls="console-moodboard">Watch it run</button>
           </div>
-          <div class="console" id="console-moodboard" aria-live="polite">
+          <div class="console console--scroll" id="console-moodboard" aria-live="polite">
             <div class="rail">
               <div class="token">Run</div>
-              <div class="wire" aria-hidden="true">
-                <div class="track"><div class="track-fill"></div></div>
-                <ol class="nodes">
-                  <li class="node" data-node="in"><span class="node-label">Style line in</span></li>
-                  <li class="node" data-node="run"><span class="node-label">Build the board</span></li>
-                  <li class="node" data-node="out"><span class="node-label">Room dressed</span></li>
+              <div class="wire">
+                <div class="track" aria-hidden="true"><div class="track-fill"></div></div>
+                <ol class="nodes nodes--five">
+                  <li class="node" data-say="A style idea arrives in chat.">
+                    <span class="node-label">When chat message received</span>
+                  </li>
+                  <li class="node node--agent" data-say="The agent (Gemini) turns it into one image prompt.">
+                    <span class="node-label">AI Agent</span>
+                    <span class="model-node">
+                      <span class="model-label">Google Gemini Chat Model</span>
+                    </span>
+                  </li>
+                  <li class="node" data-say="Clean Prompt strips line breaks, markdown, and double quotes so the next JSON body does not break.">
+                    <span class="node-label">Clean Prompt</span>
+                  </li>
+                  <li class="node" data-say="Hugging Face generates the moodboard image.">
+                    <span class="node-label">Hugging Face Image Generator</span>
+                  </li>
+                  <li class="node" data-say="The file is renamed to a downloadable moodboard image.">
+                    <span class="node-label">Rename Output File</span>
+                  </li>
                 </ol>
               </div>
+            </div>
+            <div class="run">
+              <p class="log-kicker">Run</p>
+              <ol class="log"></ol>
             </div>
           </div>
         </div>

@@ -291,8 +291,8 @@ button.cta {
 
 .track {
   position: absolute;
-  left: 16.666%;
-  right: 16.666%;
+  left: calc(100% / var(--node-count, 3) / 2);
+  right: calc(100% / var(--node-count, 3) / 2);
   top: 0.58rem;
   height: 2px;
   background: var(--stage-line);
@@ -313,6 +313,16 @@ button.cta {
   padding: 0;
   list-style: none;
   position: relative;
+}
+
+.nodes--five {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.3rem;
+  min-width: 46rem;
+}
+
+.console--scroll {
+  overflow-x: auto;
 }
 
 .node {
@@ -364,6 +374,80 @@ button.cta {
   color: var(--stage-ink);
 }
 
+.nodes--five .node-label {
+  font-size: 0.74rem;
+}
+
+.node--agent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.model-node {
+  position: relative;
+  width: 100%;
+  margin-top: 0.7rem;
+  padding-top: 1.15rem;
+  text-align: center;
+}
+
+.model-node::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 0.85rem;
+  background: var(--stage-line);
+  transform: translateX(-50%);
+}
+
+.model-node::before {
+  content: "";
+  position: absolute;
+  top: 0.72rem;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid var(--stage-dim);
+  background: var(--stage);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.model-node.is-done::before {
+  background: var(--run-dim);
+  border-color: var(--run-dim);
+}
+
+.model-node.is-live::before {
+  background: var(--run);
+  border-color: var(--run);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.28);
+  animation: node-pulse 900ms ease-in-out infinite;
+}
+
+.model-node.is-live::after,
+.model-node.is-done::after {
+  background: var(--run);
+}
+
+.model-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--stage-dim);
+}
+
+.model-node.is-live .model-label,
+.model-node.is-done .model-label {
+  color: var(--stage-ink);
+}
+
 .log-kicker {
   margin: 0 0 0.35rem;
   font-family: var(--mono);
@@ -377,11 +461,11 @@ button.cta {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  line-height: 1.55;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  line-height: 1.45;
   color: var(--stage-dim);
-  min-height: 4.5rem;
+  min-height: 0;
 }
 
 .log li {
