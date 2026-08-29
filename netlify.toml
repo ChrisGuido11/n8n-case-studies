@@ -8,3 +8,28 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[redirects]]
+  from = "/image-pipeline.html"
+  to = "/wayfair.html#moodboard"
+  status = 301
+
+[[redirects]]
+  from = "/research-agent.html"
+  to = "/wayfair.html#trends"
+  status = 301
+
+[[redirects]]
+  from = "/competitor.html"
+  to = "/wayfair.html#competitor"
+  status = 301
+
+[[redirects]]
+  from = "/claim-checker.html"
+  to = "/wayfair.html#content"
+  status = 301
+
+[[redirects]]
+  from = "/dashboard.html"
+  to = "/wayfair.html#dashboard"
+  status = 301
