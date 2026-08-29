@@ -593,8 +593,13 @@ button.cta {
   text-decoration: underline;
 }
 
-.work-page > .kicker {
+.work-page > .kicker,
+.case-page > .kicker {
   margin-top: 0.4rem;
+}
+
+.case-page > .bridge {
+  margin-top: 2.2rem;
 }
 
 .faq details {
