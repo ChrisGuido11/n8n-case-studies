@@ -71,23 +71,42 @@
 
     <section class="project" id="trends">
       <h2>Trend predictions</h2>
-      <p>Real product and research signals go in. A person gets a written call on the week.</p>
+      <p>A category comes in. The path reads three shops and the social feed, names the trends, makes one board per trend, and writes the report.</p>
       <div class="stage-block">
         <div class="stage">
           <div class="paths">
             <button type="button" class="run-btn" aria-controls="console-trends">Watch it run</button>
           </div>
-          <div class="console" id="console-trends" aria-live="polite">
+          <div class="console console--scroll" id="console-trends" aria-live="polite">
             <div class="rail">
               <div class="token">Run</div>
-              <div class="wire" aria-hidden="true">
-                <div class="track"><div class="track-fill"></div></div>
-                <ol class="nodes">
-                  <li class="node" data-node="in"><span class="node-label">Product signals in</span></li>
-                  <li class="node" data-node="run"><span class="node-label">Call the week</span></li>
-                  <li class="node" data-node="out"><span class="node-label">Prediction written</span></li>
+              <div class="wire">
+                <div class="track" aria-hidden="true"><div class="track-fill"></div></div>
+                <ol class="nodes nodes--five">
+                  <li class="node" data-say="A category arrives in chat.">
+                    <span class="node-label">Chat / category in</span>
+                  </li>
+                  <li class="node" data-say="The path fetches three shops — Amazon, Walmart, Wayfair — plus Instagram, Pinterest, and industry blogs.">
+                    <span class="node-label">Fetch three shops + social</span>
+                  </li>
+                  <li class="node node--agent" data-say="Mistral judges the category, standardizes the list, and names the top trends.">
+                    <span class="node-label">AI processing</span>
+                    <span class="model-node">
+                      <span class="model-label">Mistral</span>
+                    </span>
+                  </li>
+                  <li class="node" data-say="Each trend gets one moodboard image — clean prompt, then Hugging Face.">
+                    <span class="node-label">Image per trend</span>
+                  </li>
+                  <li class="node" data-say="The report sections are written, summary through recommendations.">
+                    <span class="node-label">Write the report</span>
+                  </li>
                 </ol>
               </div>
+            </div>
+            <div class="run">
+              <p class="log-kicker">Run</p>
+              <ol class="log"></ol>
             </div>
           </div>
         </div>
