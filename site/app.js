@@ -112,11 +112,16 @@ function bindStage(stage) {
     const li = document.createElement("li");
     li.textContent = text;
     li.className = "ok";
-    if (reduceMotion) {
-      li.style.opacity = "1";
-      li.style.transform = "none";
-    }
     logEl.appendChild(li);
+    if (reduceMotion) {
+      li.classList.add("is-in");
+      return;
+    }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        li.classList.add("is-in");
+      });
+    });
   }
 
   function resetBoard() {

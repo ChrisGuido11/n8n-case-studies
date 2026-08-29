@@ -497,7 +497,11 @@ button.cta {
 
 .log li {
   opacity: 0;
-  animation: log-in 400ms ease forwards;
+  transition: opacity 400ms ease;
+}
+
+.log li.is-in {
+  opacity: 1;
 }
 
 @keyframes node-pulse {
@@ -828,6 +832,10 @@ button.cta {
     padding: 1.35rem 1.4rem 1.45rem;
   }
 
+  .run {
+    min-height: 7rem;
+  }
+
   .console--scroll {
     overflow-x: auto;
   }
@@ -954,7 +962,7 @@ button.cta {
   .node.is-live .node-say,
   .node.is-done .node-say {
     display: block;
-    animation: log-in 400ms ease forwards;
+    animation: log-in 400ms ease both;
   }
 }
 
