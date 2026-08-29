@@ -1,8 +1,8 @@
 # Clean-room n8n agents
 
-B2B landing page for Cristopher Guido. Home sells a custom n8n build. `work.html` is five home-retail stories. No insurance demo on home.
+B2B landing page for Cristopher Guido. Home sells a custom n8n build. `work.html` has one Wayfair case-study card. The five projects live on `wayfair.html`. No insurance demo on home.
 
-`site/` is the source. Netlify publishes it. `docs/` is a copy so GitHub Pages can still deploy from `/docs`.
+`site/` is the source. Netlify publishes it. `docs/` is a stale GitHub Pages copy — update it from `site/` if Pages should stay in sync.
 
 ## Netlify
 
