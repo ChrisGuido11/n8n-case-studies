@@ -858,7 +858,8 @@ button.cta {
     transition: none;
   }
 
-  .node.is-live::before {
+  .node.is-live::before,
+  .model-node.is-live::before {
     animation: none;
   }
 
