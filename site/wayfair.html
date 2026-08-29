@@ -115,23 +115,39 @@
 
     <section class="project" id="competitor">
       <h2>Competitor scraping and analysis</h2>
-      <p>The other store’s page goes in. A snapshot comes out. A tie stays a tie.</p>
+      <p>A brief comes in. The path fetches the subject and two competitors, builds a benchmark, writes the sections, and hands back an HTML report. A tie stays a tie.</p>
       <div class="stage-block">
         <div class="stage">
           <div class="paths">
             <button type="button" class="run-btn" aria-controls="console-competitor">Watch it run</button>
           </div>
-          <div class="console" id="console-competitor" aria-live="polite">
+          <div class="console console--scroll" id="console-competitor" aria-live="polite">
             <div class="rail">
               <div class="token">Run</div>
-              <div class="wire" aria-hidden="true">
-                <div class="track"><div class="track-fill"></div></div>
-                <ol class="nodes">
-                  <li class="node" data-node="in"><span class="node-label">Scrape the other store</span></li>
-                  <li class="node" data-node="run"><span class="node-label">Read the snapshot</span></li>
-                  <li class="node" data-node="out"><span class="node-label">No fake winner</span></li>
+              <div class="wire">
+                <div class="track" aria-hidden="true"><div class="track-fill"></div></div>
+                <ol class="nodes nodes--five">
+                  <li class="node" data-say="A competitor brief arrives — chat or a demo brief.">
+                    <span class="node-label">Competitor brief in</span>
+                  </li>
+                  <li class="node" data-say="The path fetches three shops: the subject and two competitors.">
+                    <span class="node-label">Fetch three shops</span>
+                  </li>
+                  <li class="node" data-say="The benchmark is built. A tie stays a tie — no fake winner.">
+                    <span class="node-label">Build the benchmark</span>
+                  </li>
+                  <li class="node" data-say="Writers cover summary, comparison, pricing and whitespace, recommendations, and supplier.">
+                    <span class="node-label">Writers</span>
+                  </li>
+                  <li class="node" data-say="The HTML report is assembled and ready to download.">
+                    <span class="node-label">HTML report</span>
+                  </li>
                 </ol>
               </div>
+            </div>
+            <div class="run">
+              <p class="log-kicker">Run</p>
+              <ol class="log"></ol>
             </div>
           </div>
         </div>
