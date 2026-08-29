@@ -27,25 +27,23 @@
 
     <section class="project" id="moodboard">
       <h2>Moodboard</h2>
-      <p>A style line goes in. A dressed room comes back — furniture on the floor — or the run stops if the model is gone.</p>
+      <p>A style line goes in. A dressed room comes back — furniture on the floor.</p>
       <div class="stage-block">
-        <div class="stage" data-scenes="moodboard">
-          <div class="paths" role="tablist" aria-label="Moodboard run">
-            <button type="button" role="tab" aria-selected="true" aria-controls="console-moodboard" data-scene="write">It ran</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="console-moodboard" data-scene="stop">It stopped</button>
+        <div class="stage">
+          <div class="paths">
+            <button type="button" class="run-btn" aria-controls="console-moodboard">Watch it run</button>
           </div>
-          <div class="console" id="console-moodboard" role="tabpanel" aria-live="polite">
-            <div class="rail" aria-hidden="true">
+          <div class="console" id="console-moodboard" aria-live="polite">
+            <div class="rail">
               <div class="token">Run</div>
-              <ol class="nodes">
-                <li class="node" data-node="trigger"><span class="node-label">Style</span></li>
-                <li class="node" data-node="decide"><span class="node-label">Board</span></li>
-                <li class="node" data-node="out"><span class="node-label">Room</span><span class="node-value" data-field="out">—</span></li>
-              </ol>
-            </div>
-            <div class="run">
-              <p class="log-kicker">Run</p>
-              <ol class="log"></ol>
+              <div class="wire" aria-hidden="true">
+                <div class="track"><div class="track-fill"></div></div>
+                <ol class="nodes">
+                  <li class="node" data-node="in"><span class="node-label">Style line in</span></li>
+                  <li class="node" data-node="run"><span class="node-label">Build the board</span></li>
+                  <li class="node" data-node="out"><span class="node-label">Room dressed</span></li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
@@ -54,25 +52,23 @@
 
     <section class="project" id="trends">
       <h2>Trend predictions</h2>
-      <p>Real product and research signals go in. A person gets a call on the week — written, or stopped if the list never arrived.</p>
+      <p>Real product and research signals go in. A person gets a written call on the week.</p>
       <div class="stage-block">
-        <div class="stage" data-scenes="trends">
-          <div class="paths" role="tablist" aria-label="Trend predictions run">
-            <button type="button" role="tab" aria-selected="true" aria-controls="console-trends" data-scene="write">It ran</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="console-trends" data-scene="stop">It stopped</button>
+        <div class="stage">
+          <div class="paths">
+            <button type="button" class="run-btn" aria-controls="console-trends">Watch it run</button>
           </div>
-          <div class="console" id="console-trends" role="tabpanel" aria-live="polite">
-            <div class="rail" aria-hidden="true">
+          <div class="console" id="console-trends" aria-live="polite">
+            <div class="rail">
               <div class="token">Run</div>
-              <ol class="nodes">
-                <li class="node" data-node="trigger"><span class="node-label">Signals</span></li>
-                <li class="node" data-node="decide"><span class="node-label">Call</span></li>
-                <li class="node" data-node="out"><span class="node-label">Note</span><span class="node-value" data-field="out">—</span></li>
-              </ol>
-            </div>
-            <div class="run">
-              <p class="log-kicker">Run</p>
-              <ol class="log"></ol>
+              <div class="wire" aria-hidden="true">
+                <div class="track"><div class="track-fill"></div></div>
+                <ol class="nodes">
+                  <li class="node" data-node="in"><span class="node-label">Product signals in</span></li>
+                  <li class="node" data-node="run"><span class="node-label">Call the week</span></li>
+                  <li class="node" data-node="out"><span class="node-label">Prediction written</span></li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
@@ -81,25 +77,23 @@
 
     <section class="project" id="competitor">
       <h2>Competitor scraping and analysis</h2>
-      <p>The other store’s page goes in. A snapshot comes out. A tie stays a tie. An empty page stops the run.</p>
+      <p>The other store’s page goes in. A snapshot comes out. A tie stays a tie.</p>
       <div class="stage-block">
-        <div class="stage" data-scenes="competitor">
-          <div class="paths" role="tablist" aria-label="Competitor run">
-            <button type="button" role="tab" aria-selected="true" aria-controls="console-competitor" data-scene="write">It ran</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="console-competitor" data-scene="stop">It stopped</button>
+        <div class="stage">
+          <div class="paths">
+            <button type="button" class="run-btn" aria-controls="console-competitor">Watch it run</button>
           </div>
-          <div class="console" id="console-competitor" role="tabpanel" aria-live="polite">
-            <div class="rail" aria-hidden="true">
+          <div class="console" id="console-competitor" aria-live="polite">
+            <div class="rail">
               <div class="token">Run</div>
-              <ol class="nodes">
-                <li class="node" data-node="trigger"><span class="node-label">Scrape</span></li>
-                <li class="node" data-node="decide"><span class="node-label">Read</span></li>
-                <li class="node" data-node="out"><span class="node-label">Snap</span><span class="node-value" data-field="out">—</span></li>
-              </ol>
-            </div>
-            <div class="run">
-              <p class="log-kicker">Run</p>
-              <ol class="log"></ol>
+              <div class="wire" aria-hidden="true">
+                <div class="track"><div class="track-fill"></div></div>
+                <ol class="nodes">
+                  <li class="node" data-node="in"><span class="node-label">Scrape the other store</span></li>
+                  <li class="node" data-node="run"><span class="node-label">Read the snapshot</span></li>
+                  <li class="node" data-node="out"><span class="node-label">No fake winner</span></li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
@@ -108,25 +102,23 @@
 
     <section class="project" id="content">
       <h2>Content / marketing</h2>
-      <p>The moodboard, the trends, and the competitor read go in. A marketer gets a brief — or a stop if a source is missing.</p>
+      <p>The moodboard, the trends, and the competitor read go in. A marketer gets a brief they can use.</p>
       <div class="stage-block">
-        <div class="stage" data-scenes="content">
-          <div class="paths" role="tablist" aria-label="Content run">
-            <button type="button" role="tab" aria-selected="true" aria-controls="console-content" data-scene="write">It ran</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="console-content" data-scene="stop">It stopped</button>
+        <div class="stage">
+          <div class="paths">
+            <button type="button" class="run-btn" aria-controls="console-content">Watch it run</button>
           </div>
-          <div class="console" id="console-content" role="tabpanel" aria-live="polite">
-            <div class="rail" aria-hidden="true">
+          <div class="console" id="console-content" aria-live="polite">
+            <div class="rail">
               <div class="token">Run</div>
-              <ol class="nodes">
-                <li class="node" data-node="trigger"><span class="node-label">Reports</span></li>
-                <li class="node" data-node="decide"><span class="node-label">Brief</span></li>
-                <li class="node" data-node="out"><span class="node-label">Out</span><span class="node-value" data-field="out">—</span></li>
-              </ol>
-            </div>
-            <div class="run">
-              <p class="log-kicker">Run</p>
-              <ol class="log"></ol>
+              <div class="wire" aria-hidden="true">
+                <div class="track"><div class="track-fill"></div></div>
+                <ol class="nodes">
+                  <li class="node" data-node="in"><span class="node-label">Those three reports in</span></li>
+                  <li class="node" data-node="run"><span class="node-label">Write the brief</span></li>
+                  <li class="node" data-node="out"><span class="node-label">Marketer can use it</span></li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
@@ -137,23 +129,21 @@
       <h2>Dashboard</h2>
       <p>The week goes in. A manager opens tiles they can act on. An empty week stays empty. No invented score.</p>
       <div class="stage-block">
-        <div class="stage" data-scenes="dashboard">
-          <div class="paths" role="tablist" aria-label="Dashboard run">
-            <button type="button" role="tab" aria-selected="true" aria-controls="console-dashboard" data-scene="write">It ran</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="console-dashboard" data-scene="stop">It stopped</button>
+        <div class="stage">
+          <div class="paths">
+            <button type="button" class="run-btn" aria-controls="console-dashboard">Watch it run</button>
           </div>
-          <div class="console" id="console-dashboard" role="tabpanel" aria-live="polite">
-            <div class="rail" aria-hidden="true">
+          <div class="console" id="console-dashboard" aria-live="polite">
+            <div class="rail">
               <div class="token">Run</div>
-              <ol class="nodes">
-                <li class="node" data-node="trigger"><span class="node-label">Week</span></li>
-                <li class="node" data-node="decide"><span class="node-label">Tiles</span></li>
-                <li class="node" data-node="out"><span class="node-label">Act</span><span class="node-value" data-field="out">—</span></li>
-              </ol>
-            </div>
-            <div class="run">
-              <p class="log-kicker">Run</p>
-              <ol class="log"></ol>
+              <div class="wire" aria-hidden="true">
+                <div class="track"><div class="track-fill"></div></div>
+                <ol class="nodes">
+                  <li class="node" data-node="in"><span class="node-label">Week of work in</span></li>
+                  <li class="node" data-node="run"><span class="node-label">Build the tiles</span></li>
+                  <li class="node" data-node="out"><span class="node-label">Manager can act</span></li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
