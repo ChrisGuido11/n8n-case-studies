@@ -219,6 +219,8 @@ button.cta {
 .stage {
   display: grid;
   gap: 0.75rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .paths {
@@ -256,6 +258,10 @@ button.cta {
   padding: 1rem 1rem 1.1rem;
   background: var(--stage);
   color: var(--stage-ink);
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .rail {
@@ -277,7 +283,7 @@ button.cta {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   transform: translateX(-50%);
-  transition: left 520ms cubic-bezier(0.22, 1, 0.36, 1), background-color 200ms ease, color 200ms ease;
+  transition: left 520ms cubic-bezier(0.22, 1, 0.36, 1), top 520ms cubic-bezier(0.22, 1, 0.36, 1), background-color 200ms ease, color 200ms ease;
 }
 
 .token.is-on {
@@ -302,7 +308,7 @@ button.cta {
   width: 0;
   height: 100%;
   background: var(--run);
-  transition: width 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 520ms cubic-bezier(0.22, 1, 0.36, 1), height 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nodes {
@@ -318,17 +324,18 @@ button.cta {
 .nodes--five {
   grid-template-columns: repeat(5, 1fr);
   gap: 0.3rem;
-  min-width: 46rem;
 }
 
 .console--scroll {
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .node {
   position: relative;
   padding-top: 1.45rem;
   text-align: center;
+  --dot-center: 0.63rem;
+  min-width: 0;
 }
 
 .node::before {
@@ -466,6 +473,14 @@ button.cta {
   line-height: 1.45;
   color: var(--stage-dim);
   min-height: 0;
+}
+
+.log,
+.log li {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+  min-width: 0;
 }
 
 .log li {
@@ -797,13 +812,128 @@ button.cta {
   font-size: clamp(2rem, 6vw, 3rem);
 }
 
-@media (min-width: 720px) {
+@media (min-width: 721px) {
   .console {
     padding: 1.35rem 1.4rem 1.45rem;
   }
 
+  .console--scroll {
+    overflow-x: auto;
+  }
+
+  .nodes--five {
+    min-width: 46rem;
+  }
+
   .rail {
     padding-top: 2rem;
+  }
+}
+
+@media (max-width: 720px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .stage-block,
+  .stage,
+  .console,
+  .console--scroll,
+  .rail,
+  .wire,
+  .nodes,
+  .nodes--five {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .console,
+  .console--scroll {
+    overflow-x: hidden;
+  }
+
+  .rail {
+    padding-top: 1.2rem;
+  }
+
+  .token {
+    left: 0.7rem;
+    transform: translate(-50%, calc(-100% - 0.2rem));
+  }
+
+  .track {
+    left: 0.68rem;
+    right: auto;
+    top: 0.55rem;
+    bottom: 0.55rem;
+    width: 2px;
+    height: auto;
+  }
+
+  .track-fill {
+    width: 100%;
+    height: 0;
+  }
+
+  .nodes,
+  .nodes--five {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    gap: 0;
+  }
+
+  .node {
+    --dot-center: 0.63rem;
+    text-align: left;
+    padding: 0 0 1.15rem 1.85rem;
+  }
+
+  .node:last-child {
+    padding-bottom: 0.1rem;
+  }
+
+  .node::before {
+    top: 0.28rem;
+    left: 0.35rem;
+    transform: none;
+  }
+
+  .node-label,
+  .nodes--five .node-label {
+    font-size: 0.92rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .node--agent {
+    align-items: flex-start;
+  }
+
+  .model-node {
+    width: calc(100% - 0.4rem);
+    margin-left: 0.35rem;
+    margin-top: 0.55rem;
+    padding-left: 1.05rem;
+    text-align: left;
+  }
+
+  .model-node::after {
+    left: 0.25rem;
+    transform: none;
+  }
+
+  .model-node::before {
+    left: 0.25rem;
+    transform: none;
+  }
+
+  .model-label {
+    font-size: 0.78rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -828,14 +958,6 @@ button.cta {
 
   .hero-cta {
     margin-bottom: 1.15rem;
-  }
-
-  .nodes {
-    gap: 0.2rem;
-  }
-
-  .node-label {
-    font-size: 0.74rem;
   }
 
   .console {

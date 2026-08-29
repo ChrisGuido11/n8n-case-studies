@@ -2,11 +2,17 @@
 const MAILTO = "";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const stackQuery = window.matchMedia("(max-width: 720px)");
 const STEP_MS = 560;
 const SETTLE_MS = 420;
 
+function isStack() {
+  return stackQuery.matches;
+}
+
 function bindStage(stage) {
   const token = stage.querySelector(".token");
+  const rail = stage.querySelector(".rail");
   const nodes = [...stage.querySelectorAll(".nodes > .node")];
   const models = [...stage.querySelectorAll(".model-node")];
   const fill = stage.querySelector(".track-fill");
@@ -21,6 +27,11 @@ function bindStage(stage) {
   let playId = 0;
   let timers = [];
   let running = false;
+  let currentIndex = -1;
+
+  function syncLayout() {
+    stage.classList.toggle("is-stack", isStack());
+  }
 
   function clearTimers() {
     timers.forEach((id) => window.clearTimeout(id));
@@ -33,15 +44,45 @@ function bindStage(stage) {
   }
 
   function moveToken(node) {
-    if (!node || !token) return;
-    const mid = node.offsetLeft + node.offsetWidth / 2;
-    token.style.left = `${mid}px`;
+    if (!node || !token || !rail) return;
+    const railBox = rail.getBoundingClientRect();
+    const nodeBox = node.getBoundingClientRect();
+    if (isStack()) {
+      const raw = getComputedStyle(node).getPropertyValue("--dot-center").trim();
+      const root = Number.parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      const dot = raw.endsWith("rem")
+        ? Number.parseFloat(raw) * root
+        : Number.parseFloat(raw) || 11;
+      token.style.left = "";
+      token.style.top = `${nodeBox.top - railBox.top + dot}px`;
+      return;
+    }
+    token.style.top = "";
+    token.style.left = `${nodeBox.left - railBox.left + nodeBox.width / 2}px`;
   }
 
   function setProgress(index) {
     if (!fill) return;
     const max = nodes.length - 1;
-    fill.style.width = `${Math.max(0, index) / max * 100}%`;
+    const pct = `${Math.max(0, index) / max * 100}%`;
+    if (isStack()) {
+      fill.style.width = "100%";
+      fill.style.height = pct;
+      return;
+    }
+    fill.style.height = "100%";
+    fill.style.width = pct;
+  }
+
+  function resetProgress() {
+    if (!fill) return;
+    if (isStack()) {
+      fill.style.width = "100%";
+      fill.style.height = "0%";
+      return;
+    }
+    fill.style.height = "100%";
+    fill.style.width = "0%";
   }
 
   function setModelState(node, state) {
@@ -71,7 +112,8 @@ function bindStage(stage) {
     models.forEach((m) => m.classList.remove("is-live", "is-done"));
     token.classList.remove("is-on");
     stage.classList.remove("is-playing", "is-done");
-    if (fill) fill.style.width = "0%";
+    currentIndex = -1;
+    resetProgress();
     if (logEl) logEl.replaceChildren();
     moveToken(nodes[0]);
   }
@@ -85,6 +127,7 @@ function bindStage(stage) {
       setModelState(n, live ? "live" : done ? "done" : "");
     });
     token.classList.add("is-on");
+    currentIndex = index;
     moveToken(nodes[index]);
     setProgress(index);
     addLog(nodes[index].dataset.say);
@@ -96,8 +139,9 @@ function bindStage(stage) {
       n.classList.add("is-done");
       setModelState(n, "done");
     });
-    setProgress(nodes.length - 1);
-    moveToken(nodes[nodes.length - 1]);
+    currentIndex = nodes.length - 1;
+    setProgress(currentIndex);
+    moveToken(nodes[currentIndex]);
     stage.classList.remove("is-playing");
     stage.classList.add("is-done");
     if (consoleEl) consoleEl.removeAttribute("aria-busy");
@@ -138,12 +182,29 @@ function bindStage(stage) {
 
   btn.addEventListener("click", play);
 
-  window.addEventListener("resize", () => {
-    const active = stage.querySelector(".nodes > .node.is-live") || [...stage.querySelectorAll(".nodes > .node.is-done")].pop() || nodes[0];
-    moveToken(active);
-  });
+  function relayout() {
+    syncLayout();
+    if (currentIndex >= 0) {
+      setProgress(currentIndex);
+      moveToken(nodes[currentIndex]);
+      return;
+    }
+    resetProgress();
+    moveToken(nodes[0]);
+  }
 
-  requestAnimationFrame(() => moveToken(nodes[0]));
+  window.addEventListener("resize", relayout);
+  if (typeof stackQuery.addEventListener === "function") {
+    stackQuery.addEventListener("change", relayout);
+  } else {
+    stackQuery.addListener(relayout);
+  }
+
+  syncLayout();
+  requestAnimationFrame(() => {
+    syncLayout();
+    moveToken(nodes[0]);
+  });
 
   if (stage.dataset.autoplay === "true") {
     play();
