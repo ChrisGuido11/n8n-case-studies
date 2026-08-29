@@ -1015,9 +1015,11 @@ button.cta {
   }
 
   .log li,
+  .log li.is-in,
   .node-say {
     animation: none;
     opacity: 1;
     transform: none;
+    transition: none;
   }
 }
