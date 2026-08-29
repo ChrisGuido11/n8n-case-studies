@@ -3,8 +3,8 @@ const MAILTO = "";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const stackQuery = window.matchMedia("(max-width: 720px)");
-const STEP_MS = 560;
-const SETTLE_MS = 420;
+const STEP_MS = 1250;
+const SETTLE_MS = 600;
 
 function isStack() {
   return stackQuery.matches;
@@ -89,6 +89,21 @@ function bindStage(stage) {
     node.querySelectorAll(".model-node").forEach((model) => {
       model.classList.toggle("is-live", state === "live");
       model.classList.toggle("is-done", state === "done");
+    });
+  }
+
+  function ensureNodeSays() {
+    nodes.forEach((node) => {
+      if (!node.dataset.say || node.querySelector(".node-say")) return;
+      const line = document.createElement("p");
+      line.className = "node-say";
+      line.textContent = node.dataset.say;
+      const label = node.querySelector(".node-label");
+      if (label) {
+        label.insertAdjacentElement("afterend", line);
+        return;
+      }
+      node.appendChild(line);
     });
   }
 
@@ -200,6 +215,7 @@ function bindStage(stage) {
     stackQuery.addListener(relayout);
   }
 
+  ensureNodeSays();
   syncLayout();
   requestAnimationFrame(() => {
     syncLayout();
