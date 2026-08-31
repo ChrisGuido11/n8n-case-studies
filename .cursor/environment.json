@@ -1,0 +1,11 @@
+{
+  "name": "Clean-room n8n agents (static site)",
+  "install": "python3 --version",
+  "terminals": [
+    {
+      "name": "web",
+      "command": "cd site && python3 -m http.server 8000 --bind 0.0.0.0"
+    }
+  ],
+  "ports": [8000]
+}
